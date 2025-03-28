@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>
+            Forms pracs
+        </title>
+    </head>
+    <body>
+        <form>  
+            <fieldset>  
+             <legend>Login</legend>  
+           <label for="name">Username*</label><br>  
+       <input type="text" id="name" name="name" required><br>  
+       <label for="pass">Password*</label><br>
+       <input type="Password" id="pass" name="pass" required><br>  
+         
+       </fieldset> 
+       <fieldset>
+       <legend>Gender*</legend>
+       <input type="radio" id="gender" name="gender" value="male" required> Male
+       <input type="radio" id="gender" name="gender" value="female" required> Female<br>
+       </fieldset> 
+       <fieldset>
+        <legend>Programming Skill</legend>
+        <input type="checkbox" id="gender" name="gender" value="male" required> Java
+        <input type="checkbox" id="gender" name="gender" value="female" required  checked> C++
+        <input type="checkbox" id="gender" name="gender" value="female" required> C#<br>
+        </fieldset>
+        <fieldset>
+            <legend>Fruit</legend>
+            <select name="fruit" id="fruit">
+                <optgroup label="Pome">
+                    <option>Apples
+                    <option>Pears
+                    
+                </optgroup>
+                <optgroup label="Citrus">
+                    <option>Oranges
+                    <option>grapefruits
+                    <option>mandarins
+                    <option>limes
+                    
+                </optgroup>
+                <optgroup label="Stone">
+                    <option>nectarines
+                    <option>apricots
+                    <option>peaches
+                    <option>plums
+                    
+                </optgroup>
+                <optgroup label="Exotic">
+                    <option>bananas
+                    <option>mangoes
+                    
+                </optgroup>
+                <optgroup label="Berries">
+                    <option>strawberries
+                    <option>raspberries
+                    <option>blueberries
+                    <option>kiwifruit
+                    <option>passionfruit
+                </optgroup>
+                <optgroup label="Melon">
+                    <option>watermelons
+                    <option>rock-melons
+                    <option>honeydew melons
+                </optgroup>
+            </select>
+        </fieldset>
+        <textarea name="comments" id="comments" rows="10" cols="120">Enter your comments here</textarea><br>
+        <button type="button">SEND</button>
+        <button type="button">RESET</button>
+    </form> 
+    </body>
+</html>
