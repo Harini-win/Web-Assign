@@ -1,0 +1,94 @@
+
+<html>
+<head>
+    <title>23BCE5142</title>
+</head>
+<body>
+
+<h1>Airline Reservation System</h1>
+
+<span id="boarding-pass"></span>
+
+<script>
+    let seats = new Array(10).fill(0);
+    function displaySeats() {
+        let seatStatus = "Seating chart: \n";
+        for (let i = 0; i < seats.length; i++) {
+            seatStatus += `Seat ${i + 1}: ${seats[i]} \n`;
+        }
+        return seatStatus;
+    }
+    function assignSeat() {
+        let sectionChoice = prompt("Choose a section: \n1. First-class \n2. Economy");
+
+        let seatAssigned = false;
+        let name = prompt("Enter your name:");
+        let seatNumber;
+        if (sectionChoice == '1') {
+            for (let i = 0; i < 5; i++) {
+                if (seats[i] === 0) { 
+                    seats[i] = 1; 
+                    seatNumber = i + 1; 
+                    seatAssigned = true;
+                    break;
+                }
+            }
+
+            if (!seatAssigned) {
+                let switchToEconomy = confirm("First-class is full. Would you like to sit in the Economy section?");
+                if (switchToEconomy) {
+                    for (let i = 5; i < 10; i++) {
+                        if (seats[i] === 0) {
+                            seats[i] = 1;
+                            seatNumber = i + 1;
+                            seatAssigned = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else if (sectionChoice == '2') {
+            for (let i = 5; i < 10; i++) {
+                if (seats[i] === 0) { 
+                    seats[i] = 1; 
+                    seatNumber = i + 1;
+                    seatAssigned = true;
+                    break;
+                }
+            }
+
+            if (!seatAssigned) {
+                let switchToFirstClass = confirm("Economy is full. Would you like to sit in the First-class section?");
+                if (switchToFirstClass) {
+                    for (let i = 0; i < 5; i++) {
+                        if (seats[i] === 0) {
+                            seats[i] = 1;
+                            seatNumber = i + 1;
+                            seatAssigned = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (seatAssigned) {
+            let seatClass = (seatNumber <= 5) ? "First-class" : "Economy";
+            let boardingPass = `<h3>Boarding Pass</h3>
+                                <p>Name: ${name}</p>
+                                <p>Seat Number: ${seatNumber}</p>
+                                <p>Class: ${seatClass}</p>`;
+            document.getElementById("boarding-pass").innerHTML = boardingPass;
+        } else {
+            alert("Sorry, no seats are available in either section.");
+        }
+
+        alert(displaySeats());
+    }
+
+    assignSeat();
+</script>
+
+</body>
+</html>

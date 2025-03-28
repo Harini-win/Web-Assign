@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>23BCE5142</title>
+    <link rel="stylesheet" href="st.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Grocery Order Form</h2>
+        <form id="orderForm">
+            <label>Customer Name</label>
+            <input type="text" id="name" required><br>
+
+            <label>Phone Number</label>
+            <input type="tel" id="phone" required><br>
+
+            <label>Email</label>
+            <input type="email" id="email" required><br>
+
+            <h3>Products</h3>
+
+            <div class="product">
+                <input type="checkbox" id="apple">
+                <label for="apple">Apple - $10/kg</label>
+                <input type="number" id="appleQty" min="0" placeholder="kg">
+            </div>
+
+            <div class="product">
+                <input type="checkbox" id="banana">
+                <label for="banana">Banana - $5/kg</label>
+                <input type="number" id="bananaQty" min="0" placeholder="kg">
+            </div>
+
+            <div class="product">
+                <input type="checkbox" id="avocado">
+                <label for="avocado">Avocado - $7/kg</label>
+                <input type="number" id="avocadoQty" min="0" placeholder="kg">
+            </div>
+
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+
+    <script src="scr.js"></script>
+</body>
+</html>

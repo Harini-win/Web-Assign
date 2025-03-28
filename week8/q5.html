@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>23BCE5142</title>
+</head>
+<body>
+
+    <script>
+        let regNo = prompt("Enter your registration number:");
+        let name = prompt("Enter your name:");
+        document.write(`<div style="border: 3px solid red; display: inline-block; padding: 10px; font-weight: bold; text-align: center;">${regNo}</div><br><br>`);
+        document.write('<div id="nameDisplay" style="border: 1px solid black; display: inline-block; padding: 5px; font-weight: bold; text-align: center;"></div>');
+        
+        document.getElementById("nameDisplay").innerHTML = `<span style="color: red;">*${name}*</span>`;
+    </script>
+
+</body>
+</html>

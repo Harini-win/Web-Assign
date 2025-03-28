@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>23BCE5142</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function costcalc() {
+    const hour = parseFloat(prompt("Enter number of hours of work:"));
+    const matcost = parseFloat(prompt("Enter material cost:"));
+    if (isNaN(hour) || isNaN(matcost)) {
+        alert("Please enter valid numbers.");
+        return;
+    }
+    let labcost;
+    let totcost;
+    labcost = 45*hour;
+    totcost = matcost+labcost;
+    alert(`The labour cost is: ${labcost} The total cost is: ${totcost}`);
+}
+    </script>
+</head>
+<body>
+    <h1>Cost calculator</h1>
+    <button onclick="costcalc()">Calculate</button>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <title>23BCE5142</title>
+</head>
+
+<body>
+    <h1>Temperature Classification in New York City</h1>
+    <table border="1px">
+        <tr>
+            <th>Temperature (°F)</th>
+            <th>Category</th>
+        </tr>
+        <tbody id="temperature-table">
+        </tbody>
+    </table>
+
+    <div>
+        <p><strong>HOT Days:</strong> <span id="hot-count">0</span></p>
+        <p><strong>PLEASANT Days:</strong> <span id="pleasant-count">0</span></p>
+        <p><strong>COLD Days:</strong> <span id="cold-count">0</span></p>
+    </div>
+
+    <script>
+        const temperatures = [55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91, 92, 90, 93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65];
+
+        let hotDays = 0;
+        let pleasantDays = 0;
+        let coldDays = 0;
+
+        const tableBody = document.getElementById("temperature-table");
+
+        for(let temp of temperatures) {
+            let category;
+            if (temp >= 85) {
+                category = "HOT";
+                hotDays++;
+            } else if (temp >= 60) {
+                category = "PLEASANT";
+                pleasantDays++;
+            } else {
+                category = "COLD";
+                coldDays++;
+            }
+            const row = document.createElement("tr");
+            const tempCell = document.createElement("td");
+            tempCell.textContent = temp;
+            const categoryCell = document.createElement("td");
+            categoryCell.textContent = category;
+
+            row.appendChild(tempCell);
+            row.appendChild(categoryCell);
+            tableBody.appendChild(row);
+        };
+
+        document.getElementById("hot-count").textContent = hotDays;
+        document.getElementById("pleasant-count").textContent = pleasantDays;
+        document.getElementById("cold-count").textContent = coldDays;
+    </script>
+</body>
+
+</html>

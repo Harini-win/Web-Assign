@@ -1,0 +1,69 @@
+
+<html>
+<head>
+    <title>23BCE5142</title>
+</head>
+<body>
+    <h1>Hospital Data Analytics</h1>
+    <button onclick="displaySortedPatients()">Sort Patients by Age (Descending)</button>
+    <button onclick="avg()">Check Patient ID</button>
+    <button onclick="filterPatientsByAgeRange()">Filter Patients by Age Range</button>
+    
+    <pre id="output"></pre>
+
+    <script>
+        const patients = [
+            { PId: 1, Name: "Alen", Age: 39 },
+            { PId: 2, Name: "Deena", Age: 47 },
+            { PId: 3, Name: "Diana", Age: 21 },
+            { PId: 4, Name: "Jack", Age: 54 },
+            { PId: 5, Name: "Jain", Age: 23 },
+            { PId: 6, Name: "Kelvin", Age: 61 },
+            { PId: 7, Name: "Louis", Age: 69 },
+            { PId: 8, Name: "Rex", Age: 49 }
+        ];
+
+        function sortPatientsByAgeDescending(patients) {
+            return patients.sort((a, b) => (b.Age+b.PId) - (a.Age+a.PId)).map(patient => patient.Name);
+        }
+
+        function displaySortedPatients() {
+            document.getElementById("output").textContent = JSON.stringify(sortPatientsByAgeDescending([...patients]));
+        }
+
+        // (ii) Check if a P-Id exists in the list
+        function avg(){
+            document.getElementById("output").textContent = JSON.stringify(sortPatientsByAgeDescending([...patients]));
+        }
+
+        function checkPatientId() {
+            let id = parseInt(prompt("Enter Patient ID to check:"));
+            let result;
+            for(let pat of patients){
+                
+                if(pat.PId == id){
+                result = 'Present';
+            break;}
+                else{
+                result = 'Not Present';
+                }
+
+            }
+            document.getElementById("output").textContent = `Patient ID ${id} is ${result}.`;
+        }
+
+        // (iii) Filter patients by age range
+        function filterPatientsByAge(patients, minAge, maxAge) {
+            return patients.filter(patient => patient.Age >= minAge && patient.Age <= maxAge).map(patient => patient.Name);
+        }
+
+        function filterPatientsByAgeRange() {
+            let minAge = prompt("Enter Minimum Age:");
+            let maxAge = prompt("Enter Maximum Age:");
+            let filtered = filterPatientsByAge(patients, parseInt(minAge), parseInt(maxAge));
+            document.getElementById("output").textContent = JSON.stringify(filtered, null, 2);
+        }
+    </script>
+</body>
+</html>
+
