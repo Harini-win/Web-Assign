@@ -1,0 +1,96 @@
+<html> 
+<head> 
+  <title>23BCE5142</title> 
+  <style> 
+    #dynamicTable, #unorderedList { 
+      border: 2px solid black; 
+      border-collapse: collapse; 
+    } 
+    td { 
+        border: 1px solid black; 
+    } 
+    button { 
+      padding: 10px; 
+      font-size: 16px; 
+    } 
+    #textbox { 
+      padding: 10px; 
+      font-size: 16px; 
+    } 
+  </style> 
+</head> 
+<body> 
+ 
+  <script> 
+    const table = document.createElement("table"); 
+    table.setAttribute("id", "dynamicTable"); 
+    document.body.appendChild(table); 
+ 
+    for (let i = 0; i < 3; i++) { 
+      const row = document.createElement("tr"); 
+      table.appendChild(row); 
+      for (let j = 0; j < 3; j++) { 
+        const cell = document.createElement("td"); 
+        cell.textContent = `Row ${i + 1}, Column ${j + 1}`; 
+        row.appendChild(cell); 
+      } 
+    } 
+ 
+    const button = document.createElement("button"); 
+    button.textContent = "Submit"; 
+    button.style.backgroundColor = "red"; 
+    button.addEventListener("mouseover", () => { 
+      button.style.backgroundColor = "green"; 
+    }); 
+    button.addEventListener("mouseout", () => { 
+      button.style.backgroundColor = "red"; 
+    }); 
+    document.body.appendChild(button); 
+ 
+    const textbox = document.createElement("input"); 
+    textbox.type = "text"; 
+    textbox.id = "textbox"; 
+    textbox.style.backgroundColor = "green"; 
+    textbox.addEventListener("focus", () => { 
+      textbox.style.backgroundColor = "yellow"; 
+    }); 
+    textbox.addEventListener("change", () => { 
+      alert("Hello!"); 
+    }); 
+    document.body.appendChild(textbox); 
+ 
+    const inputField = document.createElement("input"); 
+    inputField.type = "text"; 
+    document.body.appendChild(inputField); 
+ 
+    const ul = document.createElement("ul"); 
+    ul.id = "unorderedList"; 
+    document.body.appendChild(ul); 
+ 
+    const addButton = document.createElement("button"); 
+    addButton.textContent = "Add Item"; 
+    addButton.addEventListener("dblclick", () => { 
+      const li = document.createElement("li"); 
+      li.textContent = inputField.value; 
+      ul.appendChild(li); 
+      inputField.value = ""; 
+    }); 
+    document.body.appendChild(addButton); 
+ 
+    const keyPressInput = document.createElement("input"); 
+    keyPressInput.type = "text"; 
+    document.body.appendChild(keyPressInput); 
+ 
+    const countDisplay = document.createElement("div"); 
+    countDisplay.textContent = "Key Press Count: 0"; 
+    document.body.appendChild(countDisplay); 
+ 
+    let keyPressCount = 0; 
+    keyPressInput.addEventListener("keypress", () => { 
+      keyPressCount++; 
+      countDisplay.textContent = `Key Press Count: ${keyPressCount}`; 
+    }); 
+  </script> 
+ 
+</body> 
+</html>
